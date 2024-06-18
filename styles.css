@@ -1,0 +1,153 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcm0zNzNiYXRjaDE1LWJnLTExLmpwZw.jpg'); /* Replace 'background.jpg' with your image file path */
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.container {
+    width: 80%;
+    max-width: 1000px;
+    height: 60vh;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    overflow-y: auto;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.add-medication, .medication-list {
+    margin-bottom: 20px;
+}
+
+input[type="text"], input[type="number"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto 10px auto;
+}
+
+.time-input {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.time-input input, .time-input select {
+    flex: 1;
+    margin-right: 5px;
+}
+
+.time-input input:last-child, .time-input select:last-child {
+    margin-right: 0;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #5cb85c;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.medication-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.medication-info span {
+    display: block;
+    font-size: 16px;
+}
+
+.medication-info button {
+    background-color: #5bc0de;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.medication-info button:hover {
+    background-color: #46b8da;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 600px) {
+    .container {
+        width: 90%;
+        height: auto;
+        margin: 20px auto;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .add-medication h2, .medication-list h2 {
+        font-size: 1.2em;
+    }
+
+    input[type="text"], input[type="number"] {
+        width: calc(100% - 20px);
+        padding: 8px;
+        margin-bottom: 8px;
+    }
+
+    .time-input {
+        flex-direction: column;
+    }
+
+    .time-input input, .time-input select {
+        margin-right: 0;
+        margin-bottom: 8px;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 1em;
+    }
+
+    li {
+        padding: 8px;
+        font-size: 1em;
+    }
+
+    .medication-info span {
+        font-size: 14px;
+    }
+}

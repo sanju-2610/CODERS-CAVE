@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medication Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Medication Manager</h1>
+        <div class="add-medication">
+            <h2>Add Medication</h2>
+            <input type="text" id="medicationName" placeholder="Medication Name">
+            <input type="text" id="dose" placeholder="Dose (e.g., 500mg)">
+            <div class="time-input">
+                <input type="number" id="reminderHour" placeholder="HH" min="1" max="12">
+                <input type="number" id="reminderMinute" placeholder="MM" min="0" max="59">
+                <select id="reminderPeriod">
+                    <option value="AM">AM</option>
+                    <option value="PM">PM</option>
+                </select>
+            </div>
+            <button onclick="addMedication()">Add Medication</button>
+        </div>
+        <div class="medication-list">
+            <h2>Your Medications</h2>
+            <ul id="medicationList"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -6,21 +6,20 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url('https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcm0zNzNiYXRjaDE1LWJnLTExLmpwZw.jpg'); /* Replace 'background.jpg' with your image file path */
+    background-image: url('https://www.shutterstock.com/shutterstock/photos/2151228245/display_1500/stock-vector-hands-holding-pen-or-pencil-making-notes-or-goals-in-a-notebook-filling-out-a-diary-or-planner-2151228245.jpg'); /* Replace 'background.jpg' with your image file path */
     background-size: cover;
     background-position: center;
     overflow: hidden;
 }
 
 .container {
-    width: 80%;
-    max-width: 1000px;
-    height: 60vh;
+    width: 90%;
+    max-width: 800px;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.9);
+    background-color: #000000; /* Changed background color to yellow */
     border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    overflow-y: auto;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border: 2px solid #ccc; /* Border line */
 }
 
 h1 {
@@ -28,33 +27,18 @@ h1 {
     color: #333;
 }
 
-.add-medication, .medication-list {
+.note-creation {
     margin-bottom: 20px;
 }
 
-input[type="text"], input[type="number"] {
+textarea {
     width: calc(100% - 22px);
+    height: 100px;
     padding: 10px;
-    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    display: block;
-    margin: 0 auto 10px auto;
-}
-
-.time-input {
-    display: flex;
-    justify-content: space-between;
     margin-bottom: 10px;
-}
-
-.time-input input, .time-input select {
-    flex: 1;
-    margin-right: 5px;
-}
-
-.time-input input:last-child, .time-input select:last-child {
-    margin-right: 0;
+    resize: none;
 }
 
 button {
@@ -72,6 +56,10 @@ button:hover {
     background-color: #4cae4c;
 }
 
+.note-list {
+    margin-top: 20px;
+}
+
 ul {
     list-style-type: none;
     padding: 0;
@@ -83,71 +71,34 @@ li {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
-}
-
-.medication-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.medication-info span {
-    display: block;
-    font-size: 16px;
+.note-content {
+    flex: 1;
 }
 
-.medication-info button {
+.note-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.note-actions button {
     background-color: #5bc0de;
     padding: 5px 10px;
     border-radius: 5px;
 }
 
-.medication-info button:hover {
+.note-actions button:hover {
     background-color: #46b8da;
 }
 
-/* Responsive Styles */
-@media screen and (max-width: 600px) {
-    .container {
-        width: 90%;
-        height: auto;
-        margin: 20px auto;
-    }
+.note-actions button.delete {
+    background-color: #d9534f;
+}
 
-    h1 {
-        font-size: 1.5em;
-    }
-
-    .add-medication h2, .medication-list h2 {
-        font-size: 1.2em;
-    }
-
-    input[type="text"], input[type="number"] {
-        width: calc(100% - 20px);
-        padding: 8px;
-        margin-bottom: 8px;
-    }
-
-    .time-input {
-        flex-direction: column;
-    }
-
-    .time-input input, .time-input select {
-        margin-right: 0;
-        margin-bottom: 8px;
-    }
-
-    button {
-        padding: 8px 16px;
-        font-size: 1em;
-    }
-
-    li {
-        padding: 8px;
-        font-size: 1em;
-    }
-
-    .medication-info span {
-        font-size: 14px;
-    }
+.note-actions button.delete:hover {
+    background-color: #c9302c;
 }

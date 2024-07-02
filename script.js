@@ -1,59 +1,39 @@
-document.addEventListener('DOMContentLoaded', () => {
-    displayNotes();
-});
+function startCountdown() {
+    const eventName = document.getElementById('eventName').value;
+    const eventDate = new Date(document.getElementById('eventDate').value);
+    const now = new Date();
 
-function addNote() {
-    const noteInput = document.getElementById('noteInput').value;
-    if (noteInput.trim() === '') {
-        alert('Please write something in the note.');
+    // Calculate the time difference in seconds
+    const timeDiff = (eventDate - now) / 1000;
+
+    if (timeDiff <= 0) {
+        alert('Please select a future date.');
         return;
     }
 
-    let notes = JSON.parse(localStorage.getItem('notes')) || [];
-    notes.push(noteInput);
-    localStorage.setItem('notes', JSON.stringify(notes));
+    // Update countdown every second
+    const countdownTimer = document.getElementById('countdownTimer');
 
-    document.getElementById('noteInput').value = '';
-    displayNotes();
-}
+    const countdownInterval = setInterval(() => {
+        const now = new Date();
+        const timeDiff = (eventDate - now) / 1000;
 
-function deleteNote(index) {
-    let notes = JSON.parse(localStorage.getItem('notes')) || [];
-    notes.splice(index, 1);
-    localStorage.setItem('notes', JSON.stringify(notes));
-    displayNotes();
-}
+        if (timeDiff <= 0) {
+            clearInterval(countdownInterval);
+            countdownTimer.innerHTML = 'Event started!';
+            return;
+        }
 
-function displayNotes() {
-    const noteList = document.getElementById('noteList');
-    noteList.innerHTML = '';
-    let notes = JSON.parse(localStorage.getItem('notes')) || [];
-    notes.forEach((note, index) => {
-        const noteItem = document.createElement('li');
-        noteItem.innerHTML = `
-            <span class="note-content">${note}</span>
-            <div class="note-actions">
-                <button onclick="shareNote(${index})">Share</button>
-                <button class="delete" onclick="deleteNote(${index})">Delete</button>
-            </div>
+        const days = Math.floor(timeDiff / (60 * 60 * 24));
+        const hours = Math.floor((timeDiff % (60 * 60 * 24)) / (60 * 60));
+        const minutes = Math.floor((timeDiff % (60 * 60)) / 60);
+        const seconds = Math.floor(timeDiff % 60);
+
+        countdownTimer.innerHTML = `
+            <span id="days">${days}</span> days
+            <span id="hours">${hours}</span> hours
+            <span id="minutes">${minutes}</span> minutes
+            <span id="seconds">${seconds}</span> seconds
         `;
-        noteList.appendChild(noteItem);
-    });
-}
-
-function shareNote(index) {
-    let notes = JSON.parse(localStorage.getItem('notes')) || [];
-    const note = notes[index];
-    if (navigator.share) {
-        navigator.share({
-            title: 'Note',
-            text: note
-        }).then(() => {
-            console.log('Note shared successfully');
-        }).catch((error) => {
-            console.log('Error sharing note', error);
-        });
-    } else {
-        alert('Your browser does not support the share feature.');
-    }
+    }, 1000);
 }

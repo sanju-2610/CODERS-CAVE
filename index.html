@@ -3,19 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notes Application</title>
+    <title>Countdown Events App</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Notes Application</h1>
-        <div class="note-creation">
-            <textarea id="noteInput" placeholder="Write your note here..."></textarea>
-            <button onclick="addNote()">Add Note</button>
-        </div>
-        <div class="note-list">
-            <h2>Your Notes</h2>
-            <ul id="noteList"></ul>
+        <h1>Countdown Events App</h1>
+        <div class="countdown">
+            <div id="countdownTimer" class="countdown-timer">
+                <span id="days"></span> days
+                <span id="hours"></span> hours
+                <span id="minutes"></span> minutes
+                <span id="seconds"></span> seconds
+            </div>
+            <div class="event-form">
+                <label for="eventName">Event Name:</label>
+                <input type="text" id="eventName">
+                <label for="eventDate">Event Date:</label>
+                <input type="date" id="eventDate">
+              <br><br>
+                <button onclick="startCountdown()">Start Countdown</button>
+            </div>
         </div>
     </div>
 

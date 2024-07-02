@@ -3,29 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Countdown Events App</title>
+    <title>Movie Recommendation App</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Countdown Events App</h1>
-        <div class="countdown">
-            <div id="countdownTimer" class="countdown-timer">
-                <span id="days"></span> days
-                <span id="hours"></span> hours
-                <span id="minutes"></span> minutes
-                <span id="seconds"></span> seconds
+    <header>
+        <h1>Movie Recommendation App</h1>
+        <nav>
+            <ul>
+                <li><a href="#" id="home-link">Home</a></li>
+                <li><a href="#" id="profile-link">Profile</a></li>
+                <li><a href="#" id="search-link">Search</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home" class="content-section">
+            <h2>Home</h2>
+            <div id="movie-list">
+                <!-- Movies will be displayed here -->
             </div>
-            <div class="event-form">
-                <label for="eventName">Event Name:</label>
-                <input type="text" id="eventName">
-                <label for="eventDate">Event Date:</label>
-                <input type="date" id="eventDate">
-              <br><br>
-                <button onclick="startCountdown()">Start Countdown</button>
-            </div>
-        </div>
-    </div>
+        </section>
+        <section id="profile" class="content-section">
+            <h2>Profile</h2>
+            <p>User profile information will go here.</p>
+        </section>
+        <section id="search" class="content-section">
+            <h2>Search</h2>
+            <input type="text" id="search-input" placeholder="Search for a movie...">
+            <div id="search-results"></div>
+        </section>
+    </main>
+  <footer>
+        <p>&copy; 2024 Movie Recommendation App</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
